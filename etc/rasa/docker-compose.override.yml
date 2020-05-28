@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  rasa:
+    image: 'rasa/rasa-sdk:latest'
+    ports:
+      - 5005:5005
+    volumes:
+      - './actions:/app/actions'
+    command:
+      - run
+  app:
+    image: "mustafameruyert/bot:rasa1"
+    expose:
+      - '5055'
