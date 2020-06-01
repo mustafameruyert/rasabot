@@ -3,8 +3,12 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from actions.setup_qa import *
-#from setup_qa import question_answering_pipeline, search_article, extract_text, final_text
+from actions.setup_qa import (
+    #question_answering_pipeline,
+    search_article,
+    extract_text,
+    final_text,
+)
 
 
 
@@ -58,7 +62,7 @@ class ActionTellTale(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         query = "Русские сказки"
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
      
         
         
@@ -71,7 +75,7 @@ class ActionFilmRecommendation(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         filmgenre=tracker.get_slot("filmgenre")
         query="Фильмы жанра "+filmgenre
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
         
 class ActionBookRecommendation(Action):
@@ -82,7 +86,7 @@ class ActionBookRecommendation(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         bookgenre=tracker.get_slot("bookgenre")
         query="Книги про "+bookgenre
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
         
         
@@ -101,7 +105,7 @@ class ActionFoodRecommandation(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         query=tracker.get_slot("cooking")
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
      
         
 class ActionNotFound(Action):
@@ -111,7 +115,7 @@ class ActionNotFound(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         query=tracker.latest_message.get('text')
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
         
         
@@ -124,7 +128,7 @@ class ActionUserLovelyFood(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         text=tracker.get_slot("user_lovely_food")
         query="Интересные факты про "+text
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
         
         
@@ -136,7 +140,7 @@ class ActionUserLovelyFood(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         text=tracker.get_slot("user_lovely_food")
         query="Интересные факты про "+text
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
         
    
@@ -182,7 +186,7 @@ class ActionMusicRecommendation(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         text=tracker.get_slot("musicgenre")
         query="Музыка "+text
-        dispatcher.utter_message(question_answering_pipeline(query))
+        dispatcher.utter_message(final_text(query))
         
 
                 

@@ -1,14 +1,14 @@
 import time
 from googlesearch import search
 from newspaper import Article
-from transformers import pipeline
+#from transformers import pipeline
 
-def question_answering_pipeline(query):
-    qa_pipeline = pipeline("question-answering",
-                           model="mrm8488/bert-multi-cased-finetuned-xquadv1",
-                           tokenizer="mrm8488/bert-multi-cased-finetuned-xquadv1"
-                          )
-    return qa_pipeline({'context': final_text(query),'question': query})["answer"]
+#def question_answering_pipeline(query):
+#    qa_pipeline = pipeline("question-answering",
+#                           model="mrm8488/bert-multi-cased-finetuned-xquadv1",
+#                           tokenizer="mrm8488/bert-multi-cased-finetuned-xquadv1"
+#                          )
+#    return qa_pipeline({'context': final_text(query),'question': query})["answer"]
 
 def search_article(query):
     my_results_list = []

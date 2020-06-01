@@ -1,4 +1,11 @@
 ## intent:bot_asks_age
 - мне [46](userage)
 - [35](userage)
-- [Восемнадцать](userage)
+- [21](userage)
+- [35](userage)
+- [18](userage)
+- [29](userage)
+- [37](userage)
+- [40](userage)
+- [23](userage)
+- [31](userage)

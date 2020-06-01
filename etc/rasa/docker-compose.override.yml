@@ -10,5 +10,6 @@ services:
       - run
   app:
     image: "mustafameruyert/bot:rasa1"
+    command: bash -c "pip install appdirs && pip install tensorflow-gpu==2.1.0 && pip install tensorflow==2.1.0 && pip install torch torchvision && pip install ipywidgets && pip install transformers"
     expose:
       - '5055'
